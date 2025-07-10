@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Assistant - Craft Perfect Prompts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-magic"></i>
+                    <h1>AI Prompt Assistant</h1>
+                </div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-tab="generate">Generate</button>
+                    <button class="nav-btn" data-tab="improve">Improve</button>
+                    <button class="nav-btn" data-tab="analyze">Analyze</button>
+                    <button class="nav-btn" data-tab="history">History</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Generate Tab -->
+            <div id="generate-tab" class="tab-content active">
+                <div class="hero">
+                    <h2>Generate Perfect AI Prompts</h2>
+                    <p>Transform your ideas into powerful, optimized prompts for any AI tool</p>
+                </div>
+
+                <div class="form-section">
+                    <div class="input-group">
+                        <label for="user-input">Describe what you want to create</label>
+                        <textarea id="user-input" placeholder="e.g., 'Write a blog post about sustainable living' or 'Create an image of a futuristic city'"></textarea>
+                    </div>
+
+                    <div class="config-grid">
+                        <div class="input-group">
+                            <label for="ai-tool">AI Tool</label>
+                            <select id="ai-tool">
+                                <option value="">Select AI Tool...</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="output-style">Output Style</label>
+                            <select id="output-style">
+                                <option value="">Select Style...</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="category">Category</label>
+                            <select id="category">
+                                <option value="">Select Category...</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="seo-keywords">SEO Keywords (Optional)</label>
+                            <input type="text" id="seo-keywords" placeholder="keyword1, keyword2, keyword3">
+                        </div>
+                    </div>
+
+                    <button id="generate-btn" class="primary-btn">
+                        <i class="fas fa-magic"></i>
+                        Generate Master Prompt
+                    </button>
+                </div>
+            </div>
+
+            <!-- Improve Tab -->
+            <div id="improve-tab" class="tab-content">
+                <div class="hero">
+                    <h2>Improve Your Existing Prompt</h2>
+                    <p>Enhance clarity, structure, and effectiveness of your current prompts</p>
+                </div>
+
+                <div class="form-section">
+                    <div class="input-group">
+                        <label for="existing-prompt">Your Current Prompt</label>
+                        <textarea id="existing-prompt" placeholder="Paste your existing prompt here..."></textarea>
+                    </div>
+
+                    <div class="config-grid">
+                        <div class="input-group">
+                            <label for="improve-ai-tool">AI Tool</label>
+                            <select id="improve-ai-tool">
+                                <option value="">Select AI Tool...</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="improve-output-style">Output Style</label>
+                            <select id="improve-output-style">
+                                <option value="">Select Style...</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="improve-category">Category</label>
+                            <select id="improve-category">
+                                <option value="">Select Category...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="improve-btn" class="primary-btn">
+                        <i class="fas fa-tools"></i>
+                        Improve Prompt
+                    </button>
+                </div>
+            </div>
+
+            <!-- Analyze Tab -->
+            <div id="analyze-tab" class="tab-content">
+                <div class="hero">
+                    <h2>Analyze Prompt Quality</h2>
+                    <p>Get detailed insights and scoring for any prompt</p>
+                </div>
+
+                <div class="form-section">
+                    <div class="input-group">
+                        <label for="analyze-prompt">Prompt to Analyze</label>
+                        <textarea id="analyze-prompt" placeholder="Paste the prompt you want to analyze..."></textarea>
+                    </div>
+
+                    <div class="config-grid">
+                        <div class="input-group">
+                            <label for="analyze-ai-tool">AI Tool</label>
+                            <select id="analyze-ai-tool">
+                                <option value="">Select AI Tool...</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="analyze-category">Category</label>
+                            <select id="analyze-category">
+                                <option value="">Select Category...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="analyze-btn" class="primary-btn">
+                        <i class="fas fa-chart-line"></i>
+                        Analyze Prompt
+                    </button>
+                </div>
+            </div>
+
+            <!-- History Tab -->
+            <div id="history-tab" class="tab-content">
+                <div class="hero">
+                    <h2>Your Prompt History</h2>
+                    <p>View and manage your previously generated prompts</p>
+                </div>
+
+                <div id="history-content" class="history-section">
+                    <!-- History items will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results-section" class="results-section" style="display: none;">
+                <div class="results-header">
+                    <h3>Generated Result</h3>
+                    <div class="results-actions">
+                        <button id="copy-btn" class="secondary-btn">
+                            <i class="fas fa-copy"></i>
+                            Copy
+                        </button>
+                        <button id="export-txt-btn" class="secondary-btn">
+                            <i class="fas fa-download"></i>
+                            Export TXT
+                        </button>
+                        <button id="export-json-btn" class="secondary-btn">
+                            <i class="fas fa-file-code"></i>
+                            Export JSON
+                        </button>
+                    </div>
+                </div>
+
+                <div class="results-content">
+                    <div class="prompt-output">
+                        <h4>Master Prompt</h4>
+                        <pre id="generated-prompt"><code></code></pre>
+                    </div>
+
+                    <div class="analysis-section">
+                        <div class="analysis-item">
+                            <h4>Analysis & Suggestions</h4>
+                            <div id="analysis-content"></div>
+                        </div>
+
+                        <div class="score-item">
+                            <h4>Prompt Score</h4>
+                            <div class="score-display">
+                                <div class="score-circle">
+                                    <span id="score-value">0</span>
+                                    <span class="score-max">/100</span>
+                                </div>
+                                <div class="score-label" id="score-label">Analyzing...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Generating your perfect prompt...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
